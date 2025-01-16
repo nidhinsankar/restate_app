@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Text, View } from "react-native";
 
 export default function Index() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<any>();
 
   const handleRoute = () => {
     let ans = false;
