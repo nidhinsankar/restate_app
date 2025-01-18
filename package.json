@@ -7,6 +7,7 @@
     "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
+    "launch-ios": "expo start --ios --simulator=\"Nidhin's Iphone\"",
     "web": "expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint"
