@@ -28,13 +28,8 @@ export default function Index() {
       <Link href={"/profile"} className="font-rubik">
         profile
       </Link>
-      <Text
-        onPress={() => {
-          handleRoute();
-        }}
-      >
-        profilehdjfv
-      </Text>
+      <Link href={"/sign-in"}>Sign-in</Link>
+
       <Card />
     </View>
   );
