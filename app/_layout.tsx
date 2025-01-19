@@ -14,8 +14,8 @@ export default function RootLayout() {
 
   return (
     <Stack>
-      <Stack.Screen name="profile" options={{ headerShown: false }} />
       <Stack.Screen name="sign-in" options={{ headerShown: false }} />
+      <Stack.Screen name="(root)" options={{ headerShown: false }} />
     </Stack>
   );
 }
