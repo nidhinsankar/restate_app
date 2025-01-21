@@ -1,4 +1,7 @@
+import { login } from "@/utils/appwrite";
+import { useglobalContext } from "@/utils/global-provider";
 import {
+  Alert,
   Image,
   ScrollView,
   StyleSheet,
@@ -9,6 +12,16 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const SignIn = () => {
+  const { isLoggedIn, loading, refetch, user } = useglobalContext();
+  const handleLogin = async () => {
+    const result = await login();
+
+    if (result) {
+      console.log("Login success", result);
+    } else {
+      Alert.alert("Error", "Unable to login");
+    }
+  };
   return (
     <View style={styles.container}>
       <SafeAreaView>
@@ -30,7 +43,10 @@ const SignIn = () => {
               Let's get closer to{" "}
               <Text className="text-blue-600">your ideal home</Text>
             </Text>
-            <TouchableOpacity className="flex flex-row items-center gap-2 justify-center bg-[#f1f1f1] w-[80%] rounded-full py-2">
+            <TouchableOpacity
+              onPress={handleLogin}
+              className="flex flex-row items-center gap-2 justify-center bg-[#f1f1f1] w-[80%] rounded-full py-2"
+            >
               <Image source={require("@/assets/icons/google.png")} />
               <Text className="font-rubik-semibold text-2xl">
                 Sign up with google

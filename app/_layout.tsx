@@ -1,6 +1,7 @@
 import { Stack } from "expo-router";
 import { useFonts } from "expo-font";
 import "../globals.css";
+import { GlobalContextProvider } from "@/utils/global-provider";
 
 export default function RootLayout() {
   const fontsLoaded = useFonts({
@@ -13,9 +14,11 @@ export default function RootLayout() {
   });
 
   return (
-    <Stack>
-      <Stack.Screen name="sign-in" options={{ headerShown: false }} />
-      <Stack.Screen name="(root)" options={{ headerShown: false }} />
-    </Stack>
+    <GlobalContextProvider>
+      <Stack>
+        <Stack.Screen name="sign-in" options={{ headerShown: false }} />
+        <Stack.Screen name="(root)" options={{ headerShown: false }} />
+      </Stack>
+    </GlobalContextProvider>
   );
 }
