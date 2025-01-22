@@ -14,11 +14,9 @@ export default function RootLayout() {
   });
 
   return (
-    <GlobalContextProvider>
-      <Stack>
-        <Stack.Screen name="sign-in" options={{ headerShown: false }} />
-        <Stack.Screen name="(root)" options={{ headerShown: false }} />
-      </Stack>
-    </GlobalContextProvider>
+    <Stack>
+      <Stack.Screen name="sign-in" options={{ headerShown: false }} />
+      <Stack.Screen name="(root)" options={{ headerShown: false }} />
+    </Stack>
   );
 }

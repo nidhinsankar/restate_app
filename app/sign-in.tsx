@@ -1,5 +1,6 @@
 import { login } from "@/utils/appwrite";
 import { useglobalContext } from "@/utils/global-provider";
+import { useNavigation } from "expo-router";
 import {
   Alert,
   Image,
@@ -10,17 +11,19 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import icons from "@/constants/icons";
 
 const SignIn = () => {
-  const { isLoggedIn, loading, refetch, user } = useglobalContext();
+  const navigation = useNavigation<any>();
   const handleLogin = async () => {
-    const result = await login();
+    navigation.navigate("(root)");
+    // const result = await login();
 
-    if (result) {
-      console.log("Login success", result);
-    } else {
-      Alert.alert("Error", "Unable to login");
-    }
+    // if (result) {
+    //   console.log("Login success", result);
+    // } else {
+    //   Alert.alert("Error", "Unable to login");
+    // }
   };
   return (
     <View style={styles.container}>
@@ -47,7 +50,7 @@ const SignIn = () => {
               onPress={handleLogin}
               className="flex flex-row items-center gap-2 justify-center bg-[#f1f1f1] w-[80%] rounded-full py-2"
             >
-              <Image source={require("@/assets/icons/google.png")} />
+              <Image source={icons.google} />
               <Text className="font-rubik-semibold text-2xl">
                 Sign up with google
               </Text>
