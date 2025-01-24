@@ -16,14 +16,14 @@ import icons from "@/constants/icons";
 const SignIn = () => {
   const navigation = useNavigation<any>();
   const handleLogin = async () => {
-    navigation.navigate("(root)");
-    // const result = await login();
+    // navigation.navigate("(root)");
+    const result = await login();
 
-    // if (result) {
-    //   console.log("Login success", result);
-    // } else {
-    //   Alert.alert("Error", "Unable to login");
-    // }
+    if (result) {
+      console.log("Login success", result);
+    } else {
+      Alert.alert("Error", "Unable to login");
+    }
   };
   return (
     <View style={styles.container}>

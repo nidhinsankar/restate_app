@@ -4,14 +4,20 @@ import {
   ID,
   Avatars,
   OAuthProvider,
+  Databases,
 } from "react-native-appwrite";
-import * as Linking from "expo-linking";
+import { makeRedirectUri } from "expo-auth-session";
 import { openAuthSessionAsync } from "expo-web-browser";
 import { Platform } from "react-native";
 export const config = {
   endpoint: process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT!,
   projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID!,
   platform: process.env.EXPO_PUBLIC_APPWRITE_PLATFORM!,
+  databaseId: process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID!,
+  galleriesId: process.env.EXPO_PUBLIC_APPWRITE_GALLERIES_COLLECTION_ID!,
+  agentsId: process.env.EXPO_PUBLIC_APPWRITE_AGENTS_COLLECTION_ID!,
+  reviewsId: process.env.EXPO_PUBLIC_APPWRITE_REVIEWS_COLLECTION_ID!,
+  propertiesId: process.env.EXPO_PUBLIC_APPWRITE_PROPERTIES_COLLECTION_ID!,
 };
 export const client = new Client();
 client.setEndpoint(config.endpoint).setProject(config.projectId);
@@ -22,12 +28,16 @@ switch (Platform.OS) {
 
 console.log(config.endpoint, config.projectId, config.platform);
 
-const account = new Account(client);
-const avatar = new Avatars(client);
+export const account = new Account(client);
+export const avatar = new Avatars(client);
+export const databases = new Databases(client);
 
 export async function login() {
   try {
-    const redirectUri = Linking.createURL("/");
+    let redirectUri = makeRedirectUri({ preferLocalhost: true });
+    if (!redirectUri.includes("localhost")) {
+      redirectUri = `${redirectUri}localhost`;
+    }
 
     const response = await account.createOAuth2Token(
       OAuthProvider.Google,

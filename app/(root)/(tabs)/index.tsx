@@ -1,7 +1,8 @@
 import Card from "@/components/card";
+import seed from "@/utils/seed";
 import { Link, useNavigation } from "expo-router";
 import { useEffect } from "react";
-import { Text, View } from "react-native";
+import { Button, Text, View } from "react-native";
 
 export default function Index() {
   const navigation = useNavigation<any>();
@@ -21,6 +22,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
+      <Button title="seed" onPress={seed} />
       <Link href={"/profile"} className="font-rubik">
         profile
       </Link>
