@@ -7,7 +7,8 @@ const Tabslayout = () => {
       <Tabs.Screen
         name="index"
         options={{
-          tabBarLabel: "home",
+          headerShown: false,
+          tabBarLabel: "Home",
           tabBarIcon: ({ color, size }) => (
             <Ionicons size={size} name="home-outline" color={color} />
           ),
@@ -16,7 +17,8 @@ const Tabslayout = () => {
       <Tabs.Screen
         name="explore"
         options={{
-          tabBarLabel: "explore",
+          headerShown: false,
+          tabBarLabel: "Explore",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="search-outline" size={size} color={color} />
           ),
@@ -25,7 +27,8 @@ const Tabslayout = () => {
       <Tabs.Screen
         name="profile"
         options={{
-          tabBarLabel: "profile",
+          headerShown: false,
+          tabBarLabel: "Profile",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="person-circle" size={size} color={color} />
           ),

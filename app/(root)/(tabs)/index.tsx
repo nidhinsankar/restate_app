@@ -3,6 +3,7 @@ import seed from "@/utils/seed";
 import { Link, useNavigation } from "expo-router";
 import { useEffect } from "react";
 import { Button, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
   const navigation = useNavigation<any>();
@@ -15,7 +16,7 @@ export default function Index() {
   };
 
   return (
-    <View
+    <SafeAreaView
       style={{
         flex: 1,
         justifyContent: "center",
@@ -36,6 +37,6 @@ export default function Index() {
         profilehdjfv
       </Text>
       <Link href={"/properties/35"}>property</Link>
-    </View>
+    </SafeAreaView>
   );
 }
