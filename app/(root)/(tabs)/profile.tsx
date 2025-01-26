@@ -7,7 +7,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const Profile = () => {
   return (
-    <SafeAreaView style={styles.container} className="px-4">
+    <SafeAreaView className="px-4 bg-red-500">
       <ScrollView>
         <View className="flex flex-row items-center justify-between">
           <Text className=" font-rubik-Bold text-2xl">Profile</Text>
